@@ -27,11 +27,7 @@ module.exports = function(grunt) {
         command: 'bower install',
         stdout: true
       },
-      jasmine: {
-        command: 'grunt jasmine',
-        stdout: true
-      },
-      jasmine__server: {
+      jasmine_server: {
         command: 'grunt jasmine-server',
         stdout: true
       }
@@ -94,7 +90,7 @@ module.exports = function(grunt) {
   // -------------
 
   // Default task.
-  grunt.registerTask('default', 'test');
+  grunt.registerTask('default', 'jasmine');
 
   // Compile the library.
   grunt.registerTask('compile', [
@@ -110,8 +106,7 @@ module.exports = function(grunt) {
   ]);
 
   // Run Jasmine suite.
-  grunt.registerTask('test', 'shell:jasmine');
-  grunt.registerTask('test_server', 'shell:jasmine_server');
+  grunt.registerTask('jasmine_server', 'shell:jasmine_server');
 
 
 };

@@ -17,6 +17,7 @@ _t = {};
  * Load fixtures.
  */
 _t.loadFixtures = function() {
+  _t.setFixturesPath();
   loadFixtures('template.html');
   loadFixtures('static.html');
 };

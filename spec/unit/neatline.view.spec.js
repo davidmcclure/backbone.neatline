@@ -15,15 +15,34 @@ describe('Neatline.View', function() {
     _t.loadFixtures();
   });
 
-  it('should select elements in the `ui` hash', function() {
+  describe('getUi', function() {
 
-    // --------------------------------------------------------------------
-    // When the view defined a `ui` object, on startup each of the keys in
-    // the hash should be reassigned to point to a jQuery-wrapped element
-    // derived from the key's original string value.
-    // --------------------------------------------------------------------
+    it('should select elements in the `ui` hash', function() {
 
+      // ------------------------------------------------------------------
+      // When the view defines a `ui` object, on startup each of the keys
+      // in the hash should be pointed to a DOM selection derived from the
+      // key's original string value.
+      // ------------------------------------------------------------------
 
+      var view = Backbone.Neatline.View.extend({
+        ui: {
+          el1: '#el1',
+          group: {
+            el2: '#el2',
+            subgroup: {
+              el3: '#el3'
+            }
+          }
+        }
+      });
+
+      var inst = new view({ el: '#test' });
+      expect(inst.ui.el1).toEqual(inst.$('#el1'));
+      expect(inst.ui.group.el2).toEqual(inst.$('#el2'));
+      expect(inst.ui.group.subgroup.el3).toEqual(inst.$('#el3'));
+
+    });
 
   });
 

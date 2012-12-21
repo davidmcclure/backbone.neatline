@@ -11,4 +11,36 @@
 
 Neatline.View = Backbone.View.extend({
 
+
+  /**
+   * Populate `ui` hash on startup.
+   */
+  constructor: function() {
+    var args = Array.prototype.slice.apply(arguments);
+    Backbone.View.prototype.constructor.apply(this, args);
+    this.getUi();
+  },
+
+
+  /**
+   * Replace values in ui hash with DOM selections derived from the keys.
+   */
+  getUi: function() {
+
+    // Recursively select values.
+    var select = _.bind(function(o) {
+      _.each(o, _.bind(function(v,k) {
+        if (typeof v == 'string') {
+          o[k] = this.$(v);
+        } else if (typeof v == 'object') {
+          select(v);
+        }
+      }, this));
+    }, this);
+
+    select(this.ui);
+
+  }
+
+
 });
