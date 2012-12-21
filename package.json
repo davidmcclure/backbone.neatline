@@ -4,7 +4,7 @@
   , "private": false
   , "devDependencies": {
       "grunt-shell": "latest"
-    , "grunt-contrib-clean": "latest"
+    , "grunt-contrib-clean": "0.3.1"
     , "grunt-jasmine-runner": "latest"
     , "grunt-rigger": "latest"
     , "underscore": "latest"

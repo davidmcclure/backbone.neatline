@@ -1,5 +1,11 @@
 {
-  "jquery": "./components/jquery/jquery.js",
-  "underscore": "./components/underscore/underscore.js",
-  "backbone": "./components/backbone/backbone.js"
+  "app": {
+    "jquery": "./components/jquery/jquery.js",
+    "underscore": "./components/underscore/underscore.js",
+    "backbone": "./components/backbone/backbone.js"
+  },
+  "test": {
+    "jasmine_jquery": "./components/jasmine-jquery/lib/jasmine-jquery.js",
+    "sinon": "./components/sinon.js/sinon.js"
+  }
 }

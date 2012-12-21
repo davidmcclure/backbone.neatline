@@ -4,7 +4,7 @@
 /**
  * Grunt file.
  *
- * @package     neatline.backbone
+ * @package     backbone.neatline
  * @copyright   2012 Rector and Board of Visitors, University of Virginia
  * @license     http://www.apache.org/licenses/LICENSE-2.0.html
  */
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      bower: '/.components'
+      bower: ['components']
     },
 
     rig: {
@@ -48,10 +48,35 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      build: {
+        src: [
+          vendor.app.jquery,
+          vendor.app.underscore,
+          vendor.app.backbone,
+          '<config:rig.build.dest>'
+        ],
+        dest: 'lib/neatline.backbone.js'
+      }
+    },
+
     min: {
       build: {
-        src: '<config:rig.build.dest>',
+        src: '<config:concat.build.dest>',
         dest: 'lib/neatline.backbone.min.js'
+      }
+    },
+
+    jasmine: {
+      src: 'lib/neatline.backbone.js',
+      specs: 'spec/unit/**/*.spec.js',
+      helpers: [
+        'spec/helpers.js',
+        vendor.test.jasmine_jquery,
+        vendor.test.sinon
+      ],
+      server: {
+        port: 1337
       }
     },
 
@@ -74,6 +99,7 @@ module.exports = function(grunt) {
   // Compile the library.
   grunt.registerTask('compile', [
     'rig',
+    'concat',
     'min'
   ]);
 

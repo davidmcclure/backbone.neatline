@@ -9,6 +9,22 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0.html
  */
 
-Neatline.View = Backbone.View.extend({
 
-});
+_t = {};
+
+
+/**
+ * Load fixtures.
+ */
+_t.loadFixtures = function() {
+  loadFixtures('template.html');
+  loadFixtures('static.html');
+};
+
+
+/**
+ * Set the fixtures path.
+ */
+_t.setFixturesPath = function() {
+  jasmine.getFixtures().fixturesPath = 'spec/fixtures';
+};
