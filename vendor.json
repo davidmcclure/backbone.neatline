@@ -1,0 +1,5 @@
+{
+  "jquery": "./components/jquery/jquery.js",
+  "underscore": "./components/underscore/underscore.js",
+  "backbone": "./components/backbone/backbone.js"
+}

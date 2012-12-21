@@ -13,6 +13,7 @@
 Backbone.Neatline = (function(Backbone, _) {
   var Neatline = {};
 
+//= ../neatline.view.js
 //= ../neatline.immortalview.js
 
   return Neatline;
