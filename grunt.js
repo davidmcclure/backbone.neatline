@@ -13,6 +13,8 @@ module.exports = function(grunt) {
 
   // Load tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-jasmine-runner');
+  grunt.loadNpmTasks('grunt-rigger');
   grunt.loadNpmTasks('grunt-shell');
 
   // Load configuration.
@@ -37,20 +39,26 @@ module.exports = function(grunt) {
 
     clean: {
       bower: '/.components'
-      // payload: [
-      // ]
+    },
+
+    rig: {
+      build: {
+        src: 'src/build/neatline.backbone.js',
+        dest: 'lib/neatline.backbone.js'
+      }
     },
 
     min: {
-
+      build: {
+        src: '<config:rig.build.dest>',
+        dest: 'lib/neatline.backbone.min.js'
+      }
     },
 
     watch: {
       payload: {
-        files: [
-        ],
-        tasks: [
-        ]
+        files: 'src/**/*.js',
+        tasks: ['compile']
       }
     }
 
@@ -62,6 +70,12 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', 'test');
+
+  // Compile the library.
+  grunt.registerTask('compile', [
+    'rig',
+    'min'
+  ]);
 
   // Build the application.
   grunt.registerTask('build', [
