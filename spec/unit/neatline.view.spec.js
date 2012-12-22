@@ -38,9 +38,9 @@ describe('Neatline.View', function() {
       });
 
       var inst = new view({ el: '#test' });
-      expect(inst.ui.el1).toEqual(inst.$('#el1'));
-      expect(inst.ui.group.el2).toEqual(inst.$('#el2'));
-      expect(inst.ui.group.subgroup.el3).toEqual(inst.$('#el3'));
+      expect(inst.ui.el1.attr('id')).toEqual('el1');
+      expect(inst.ui.group.el2.attr('id')).toEqual('el2');
+      expect(inst.ui.group.subgroup.el3.attr('id')).toEqual('el3');
 
     });
 

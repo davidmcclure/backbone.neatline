@@ -27,18 +27,22 @@ Neatline.View = Backbone.View.extend({
    */
   getUi: function() {
 
-    // Recursively select values.
-    var select = _.bind(function(o) {
+    // Walk this.ui:
+    _.bind(function select(o) {
       _.each(o, _.bind(function(v,k) {
+
+        // If string, select.
         if (typeof v == 'string') {
           o[k] = this.$(v);
-        } else if (typeof v == 'object') {
+        }
+
+        // If object, recurse.
+        else if (typeof v == 'object') {
           select(v);
         }
-      }, this));
-    }, this);
 
-    select(this.ui);
+      }, this));
+    }, this)(this.ui);
 
   }
 
