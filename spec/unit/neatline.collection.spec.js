@@ -11,7 +11,7 @@
 
 describe('Neatline.Collection', function() {
 
-  var model, collection, inst;
+  var model, collection, coll;
 
   beforeEach(function() {
 
@@ -29,7 +29,7 @@ describe('Neatline.Collection', function() {
     });
 
     // Test instance.
-    inst = new collection();
+    coll = new collection();
 
   });
 
@@ -44,7 +44,7 @@ describe('Neatline.Collection', function() {
       // ------------------------------------------------------------------
 
       // Add model to collection
-      var model = inst.create({ id: 1, key: 'val' });
+      var model = coll.create({ id: 1, key: 'val' });
 
       // Fetch success callback.
       var callback = function(model) {
@@ -54,7 +54,7 @@ describe('Neatline.Collection', function() {
 
       // Get existing model.
       var c1 = _t.server.requests.length;
-      inst.getOrFetch(1, callback);
+      coll.getOrFetch(1, callback);
       var c2 = _t.server.requests.length;
 
       // No new request.
@@ -81,7 +81,7 @@ describe('Neatline.Collection', function() {
       };
 
       // Get absent model.
-      inst.getOrFetch(1, callback);
+      coll.getOrFetch(1, callback);
 
       // Capture outoing GET request.
       var request = _t.getLastRequest();
