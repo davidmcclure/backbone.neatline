@@ -13,6 +13,7 @@ Backbone.Neatline = (function(Backbone, _) {
   var Neatline = {};
 
 //= ../neatline.view.js
+//= ../neatline.permanentview.js
 
   return Neatline;
 })(Backbone, _, $ || window.jQuery || window.Zepto || window.ender);

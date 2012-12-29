@@ -20,27 +20,27 @@ describe('Neatline.View', function() {
     it('should select elements in the `ui` hash', function() {
 
       // ------------------------------------------------------------------
-      // When the view defines a `ui` object, on startup each of the keys
-      // in the hash should be pointed to a DOM selection derived from the
-      // key's original string value.
+      // If the view defines a `ui` object, each of the values in the hash
+      // should be replaced with a DOM selection derived from the original
+      // string value.
       // ------------------------------------------------------------------
 
       var view = Backbone.Neatline.View.extend({
         ui: {
           el1: '#el1',
-          group: {
+          g1: {
             el2: '#el2',
-            subgroup: {
+            g2: {
               el3: '#el3'
             }
           }
         }
       });
 
-      var inst = new view({ el: '#test' });
-      expect(inst.ui.el1.attr('id')).toEqual('el1');
-      expect(inst.ui.group.el2.attr('id')).toEqual('el2');
-      expect(inst.ui.group.subgroup.el3.attr('id')).toEqual('el3');
+      var inst = new view({ el: '#static' });
+      expect(inst.ui.el1.attr('id')).       toEqual('el1');
+      expect(inst.ui.g1.el2.attr('id')).    toEqual('el2');
+      expect(inst.ui.g1.g2.el3.attr('id')). toEqual('el3');
 
     });
 

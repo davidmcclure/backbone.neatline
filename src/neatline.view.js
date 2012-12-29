@@ -13,7 +13,8 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Populate `ui` hash on startup.
+   * Call automatic startup routines:
+   *  - `getUi`
    */
   constructor: function() {
     var args = Array.prototype.slice.apply(arguments);
@@ -23,7 +24,17 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Replace values in ui hash with DOM selections derived from the keys.
+   * Select, compile, and inject the underscore template into `$el`.
+   */
+  getTemplate: function() {
+    if (!this.template) return;
+    this.$el.append(_.template($(this.template).html()));
+  },
+
+
+  /**
+   * Select the elements defined in the `ui` hash, replacing the original
+   * selector strings with the jQuery-wrapped DOM selections.
    */
   getUi: function() {
 

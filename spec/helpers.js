@@ -18,8 +18,8 @@ _t = {};
  */
 _t.loadFixtures = function() {
   _t.setFixturesPath();
-  loadFixtures('template.html');
-  loadFixtures('static.html');
+  appendLoadFixtures('template.html');
+  appendLoadFixtures('static.html');
 };
 
 
