@@ -12,26 +12,26 @@
 Neatline.SyncCollection = Neatline.Collection.extend({
 
 
-    /**
-     * When any instance of the `Record` model changes, check to see if a
-     * model with the same id is in the collection and, if so, update it.
-     */
-    initialize: function() {
-      this.model.prototype.bind('change', _.bind(function(model) {
-        this.updateModel(model.toJSON());
-      }, this));
-    },
+  /**
+   * When any instance of the `Record` model changes, check to see if a
+   * model with the same id is in the collection and, if so, update it.
+   */
+  initialize: function() {
+    this.model.prototype.bind('change', _.bind(function(model) {
+      this.updateModel(model.toJSON());
+    }, this));
+  },
 
 
-    /**
-     * Update the data for a model with the passed id.
-     *
-     * @param {Object} data: The new data.
-     */
-    updateModel: function(data) {
-      var model = this.get(data.id);
-      if (model) model.set(data, { silent: true });
-    }
+  /**
+   * Update the data for a model with the passed id.
+   *
+   * @param {Object} data: The new data.
+   */
+  updateModel: function(data) {
+    var model = this.get(data.id);
+    if (model) model.set(data, { silent: true });
+  }
 
 
 });

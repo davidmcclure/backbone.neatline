@@ -10,10 +10,7 @@
  */
 
 describe('Neatline.View', function() {
-
-  beforeEach(function() {
-    _t.loadFixtures();
-  });
+  beforeEach(_t.beforeEach);
 
   describe('getUi', function() {
 

@@ -12,35 +12,35 @@
 Neatline.Collection = Backbone.Collection.extend({
 
 
-    /**
-     * Get a model by id.
-     *
-     * - If the model is already present in the collection, pass it to the
-     *   callback immediately.
-     *
-     * - If the model is absent, create a new model on the fly, fetch data
-     *   from the server, and pass the populated model to the callback.
-     *
-     * @param {Number} id: The model id.
-     * @param {Function} cb: Callback, called with the model.
-     */
-    getOrFetch: function(id, cb) {
+  /**
+   * Get a model by id.
+   *
+   * - If the model is already present in the collection, pass it to the
+   *   callback immediately.
+   *
+   * - If the model is absent, create a new model on the fly, fetch data
+   *   from the server, and pass the populated model to the callback.
+   *
+   * @param {Number} id: The model id.
+   * @param {Function} cb: Callback, called with the model.
+   */
+  getOrFetch: function(id, cb) {
 
-      // Get existing model.
-      var model = this.get(id);
-      if (model) cb(model);
+    // Get existing model.
+    var model = this.get(id);
+    if (model) cb(model);
 
-      else {
+    else {
 
-        // Create new model, populate.
-        model = new this.model({ id: id });
-        model.fetch({ success: function() {
-          cb(model);
-        }});
-
-      }
+      // Create new model, populate.
+      model = new this.model({ id: id });
+      model.fetch({ success: function() {
+        cb(model);
+      }});
 
     }
+
+  }
 
 
 });

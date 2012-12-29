@@ -10,10 +10,7 @@
  */
 
 describe('Neatline.PermanentView', function() {
-
-  beforeEach(function() {
-    _t.loadFixtures();
-  });
+  beforeEach(_t.beforeEach);
 
   describe('getTemplate', function() {
 
