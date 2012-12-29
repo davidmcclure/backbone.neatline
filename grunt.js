@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 
     rig: {
       build: {
-        src: 'src/build/neatline.backbone.js',
-        dest: 'lib/neatline.backbone.js'
+        src: 'src/build/backbone.neatline.js',
+        dest: 'lib/backbone.neatline.js'
       }
     },
 
@@ -52,19 +52,19 @@ module.exports = function(grunt) {
           vendor.app.backbone,
           '<config:rig.build.dest>'
         ],
-        dest: 'lib/neatline.backbone.js'
+        dest: 'lib/backbone.neatline.js'
       }
     },
 
     min: {
       build: {
         src: '<config:concat.build.dest>',
-        dest: 'lib/neatline.backbone.min.js'
+        dest: 'lib/backbone.neatline.min.js'
       }
     },
 
     jasmine: {
-      src: 'lib/neatline.backbone.js',
+      src: 'lib/backbone.neatline.js',
       specs: 'spec/unit/**/*.spec.js',
       helpers: [
         'spec/helpers.js',
