@@ -1,5 +1,5 @@
 {
-    "name": "Backbone.Neatline"
+    "name": "neatline.backbone"
   , "version": "0.0.1"
   , "private": false
   , "devDependencies": {
