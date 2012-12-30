@@ -61,9 +61,9 @@ describe('Neatline.View', function() {
       var inst = new view({ el: '#static' });
       inst.getUi();
 
-      expect(inst.ui.el1.attr('id')).       toEqual('el1');
-      expect(inst.ui.g1.el2.attr('id')).    toEqual('el2');
-      expect(inst.ui.g1.g2.el3.attr('id')). toEqual('el3');
+      expect(inst.__ui.el1.attr('id')).       toEqual('el1');
+      expect(inst.__ui.g1.el2.attr('id')).    toEqual('el2');
+      expect(inst.__ui.g1.g2.el3.attr('id')). toEqual('el3');
 
     });
 

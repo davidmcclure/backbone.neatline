@@ -27,6 +27,8 @@ Neatline.View = Backbone.View.extend({
    */
   getUi: function() {
 
+    this.__ui = this.ui;
+
     // Walk this.ui:
     _.bind(function select(o) {
       _.each(o, _.bind(function(v,k) {
@@ -42,7 +44,7 @@ Neatline.View = Backbone.View.extend({
         }
 
       }, this));
-    }, this)(this.ui);
+    }, this)(this.__ui);
 
   }
 
