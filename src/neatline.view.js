@@ -24,15 +24,6 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Select, compile, and inject the underscore template into `$el`.
-   */
-  getTemplate: function() {
-    if (!this.template) return;
-    this.$el.append(_.template($(this.template).html()));
-  },
-
-
-  /**
    * Select the elements defined in the `ui` hash, replacing the original
    * selector strings with the jQuery-wrapped DOM selections.
    */
