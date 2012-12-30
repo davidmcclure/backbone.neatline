@@ -46,12 +46,7 @@ module.exports = function(grunt) {
 
     concat: {
       build: {
-        src: [
-          vendor.app.jquery,
-          vendor.app.underscore,
-          vendor.app.backbone,
-          '<config:rig.build.dest>'
-        ],
+        src: '<config:rig.build.dest>',
         dest: 'lib/backbone.neatline.js'
       }
     },
@@ -64,12 +59,17 @@ module.exports = function(grunt) {
     },
 
     jasmine: {
-      src: 'lib/backbone.neatline.js',
+      src: [
+        vendor.jquery,
+        vendor.underscore,
+        vendor.backbone,
+        'lib/backbone.neatline.js'
+      ],
       specs: 'spec/unit/**/*.spec.js',
       helpers: [
         'spec/helpers.js',
-        vendor.test.jasmine_jquery,
-        vendor.test.sinon
+        vendor.jasmine_jquery,
+        vendor.sinon
       ],
       server: {
         port: 1337
@@ -102,7 +102,8 @@ module.exports = function(grunt) {
   // Build the application.
   grunt.registerTask('build', [
     'clean',
-    'shell:bower'
+    'shell:bower',
+    'compile'
   ]);
 
   // Run Jasmine suite.
