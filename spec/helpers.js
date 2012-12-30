@@ -43,7 +43,8 @@ _t.setFixturesPath = function() {
  */
 _t.loadJsonFixtures = function() {
   this.json = {
-    record: readFixtures('record.json')
+    record:     readFixtures('record.json'),
+    collection: readFixtures('collection.json')
   };
 };
 
