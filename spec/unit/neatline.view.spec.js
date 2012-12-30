@@ -12,6 +12,30 @@
 describe('Neatline.View', function() {
   beforeEach(_t.beforeEach);
 
+  describe('getTemplate', function() {
+
+    it('should select, compile, and append the template', function() {
+
+      // ------------------------------------------------------------------
+      // When the view defines a `template` selector, the template should
+      // be selected, compiled, and injected into `$el`.
+      // ------------------------------------------------------------------
+
+      var view = Backbone.Neatline.View.extend({
+        template: '#template'
+      });
+
+      var inst = new view();
+      inst.getTemplate();
+
+      expect(inst.$el).toContain('#el4');
+      expect(inst.$el).toContain('#el5');
+      expect(inst.$el).toContain('#el6');
+
+    });
+
+  });
+
   describe('getUi', function() {
 
     it('should select elements in the `ui` hash', function() {
@@ -35,6 +59,8 @@ describe('Neatline.View', function() {
       });
 
       var inst = new view({ el: '#static' });
+      inst.getUi();
+
       expect(inst.ui.el1.attr('id')).       toEqual('el1');
       expect(inst.ui.g1.el2.attr('id')).    toEqual('el2');
       expect(inst.ui.g1.g2.el3.attr('id')). toEqual('el3');

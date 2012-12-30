@@ -13,13 +13,11 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Call automatic startup routines:
-   *  - `getUi`
+   * Select, compile, and inject the underscore template into $el.
    */
-  constructor: function() {
-    var args = Array.prototype.slice.apply(arguments);
-    Backbone.View.prototype.constructor.apply(this, args);
-    this.getUi();
+  getTemplate: function() {
+    if (!this.template) return;
+    this.$el.append(_.template($(this.template).html()));
   },
 
 
