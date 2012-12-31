@@ -130,6 +130,23 @@ describe('Neatline.Collection', function() {
 
     });
 
+    it('should issue GET request with undefined parameters', function() {
+
+      // ------------------------------------------------------------------
+      // When no parameters object is passed to `update`, `fetch` should
+      // be invoked with no GET parameters.
+      // ------------------------------------------------------------------
+
+      // Update.
+      coll.update(undefined, function() {});
+
+      // Check method and route.
+      var request = _t.getLastRequest();
+      expect(request.method).toEqual('GET');
+      expect(request.url).toEqual('api');
+
+    });
+
   });
 
 });

@@ -22,8 +22,8 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Select the elements defined in the `ui` hash, replacing the original
-   * selector strings with the jQuery-wrapped DOM selections.
+   * Copy the canonical `ui` hash to a instance-endemic `__ui` hash and
+   * replace the values with DOM selections derived from the strings.
    */
   getUi: function() {
 

@@ -19,6 +19,7 @@ Neatline.Collection = Backbone.Collection.extend({
    * @param {Function} cb: Called when `fetch` completes.
    */
   update: function(params, cb) {
+    params = params || {};
     this.fetch({ data: $.param(params), success: cb });
   },
 
