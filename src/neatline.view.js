@@ -27,7 +27,7 @@ Neatline.View = Backbone.View.extend({
    */
   getUi: function() {
 
-    this.__ui = _.clone(this.ui);
+    this.__ui = $.extend(true, {}, this.ui);
 
     // Walk this.ui:
     _.bind(function select(o) {
