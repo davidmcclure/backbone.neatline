@@ -11,7 +11,9 @@
 
 describe('Neatline.Collection', function() {
 
+
   var model, collection, coll;
+
 
   beforeEach(function() {
 
@@ -33,14 +35,15 @@ describe('Neatline.Collection', function() {
 
   });
 
+
   describe('getOrFetch', function() {
 
     it('should return a model when one is present', function() {
 
       // ------------------------------------------------------------------
-      // When `getOrFetch` is passed an id for which there is already a
-      // model in the collection, the model should be immediately passed
-      // to the provided callback without any interaction with the server.
+      // When `getOrFetch` is passed the id of a model that already exists
+      // in the collection, the model should be immediately passed to the
+      // supplied callback without any interaction with the server.
       // ------------------------------------------------------------------
 
       // Add model to collection
@@ -65,11 +68,9 @@ describe('Neatline.Collection', function() {
     it('should fetch a new model when one is not present', function() {
 
       // ------------------------------------------------------------------
-      // When `getOrFetch` is called with the id for which no model exists
-      // in the collection (for example, when an editor form is opened for
-      // a record that is not currently visible on the map), a new model
-      // should be created from the supplied id, fetched from the server,
-      // and then passed to the supplied callback when it has data.
+      // When `getOrFetch` is called with an id for which no model exists
+      // in the collection, a new model should be created, populated with
+      // data, and passed to the supplied callback.
       // ------------------------------------------------------------------
 
       var done = false;
@@ -95,6 +96,7 @@ describe('Neatline.Collection', function() {
     });
 
   });
+
 
   describe('update', function() {
 
@@ -148,5 +150,6 @@ describe('Neatline.Collection', function() {
     });
 
   });
+
 
 });

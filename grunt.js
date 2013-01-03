@@ -107,7 +107,7 @@ module.exports = function(grunt) {
   ]);
 
   // Run Jasmine suite.
-  grunt.registerTask('jasmine_server', 'shell:jasmine_server');
+  grunt.registerTask('jasmine:server', 'shell:jasmine_server');
 
 
 };

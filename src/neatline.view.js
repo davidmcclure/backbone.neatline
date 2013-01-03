@@ -35,7 +35,7 @@ Neatline.View = Backbone.View.extend({
 
         // If string, select.
         if (typeof v == 'string') {
-          o[k] = this.$(v);
+          o[k] = this.$el.find(v);
         }
 
         // If object, recurse.
@@ -46,6 +46,17 @@ Neatline.View = Backbone.View.extend({
       }, this));
     }, this)(this.__ui);
 
+  },
+
+
+  /**
+   * Append the view to a container element.
+   *
+   * @param {Obeject} container: The container.
+   */
+  show: function(container) {
+    this.$el.appendTo(container);
+    this.delegateEvents();
   }
 
 

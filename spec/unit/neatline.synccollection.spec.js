@@ -11,7 +11,9 @@
 
 describe('Neatline.SyncCollection', function() {
 
+
   var model, collection, inst;
+
 
   beforeEach(function() {
 
@@ -29,6 +31,7 @@ describe('Neatline.SyncCollection', function() {
     });
 
   });
+
 
   describe('initialize', function() {
 
@@ -60,6 +63,7 @@ describe('Neatline.SyncCollection', function() {
 
   });
 
+
   describe('updateModel', function() {
 
     it('should update a local model when one is present', function() {
@@ -81,5 +85,6 @@ describe('Neatline.SyncCollection', function() {
     });
 
   });
+
 
 });
