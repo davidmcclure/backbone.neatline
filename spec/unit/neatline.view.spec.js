@@ -95,7 +95,7 @@ describe('Neatline.View', function() {
 
       var inst = new Backbone.Neatline.View();
 
-      inst.show(container);
+      inst.showIn(container);
       expect(container).toContain(inst.$el);
 
     });
@@ -123,11 +123,11 @@ describe('Neatline.View', function() {
       var inst = new view();
       spyOn(inst, 'clicked');
       inst.getTemplate();
-      inst.show(container);
+      inst.showIn(container);
 
       // Overwrite without detaching.
       container.html($('<div></div>"'));
-      inst.show(container);
+      inst.showIn(container);
 
       // Trigger event callback.
       inst.$('#el4').trigger('click');

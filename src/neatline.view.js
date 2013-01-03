@@ -54,7 +54,7 @@ Neatline.View = Backbone.View.extend({
    *
    * @param {Obeject} container: The container.
    */
-  show: function(container) {
+  showIn: function(container) {
     this.$el.appendTo(container);
     this.delegateEvents();
   }
