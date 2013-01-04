@@ -16,17 +16,17 @@ Neatline.SyncCollection = Neatline.Collection.extend({
    * When any instance of the collection's model changes, check to see if
    * a model with the same id is in the collection and, if so, update it.
    */
-  constructor: function() {
+  // constructor: function() {
 
-    var args = Array.prototype.slice.apply(arguments);
-    Backbone.Collection.prototype.constructor.apply(this, args);
+  //   var args = Array.prototype.slice.apply(arguments);
+  //   Backbone.Collection.prototype.constructor.apply(this, args);
 
-    // Listen for model change.
-    this.model.prototype.bind('change', _.bind(function(model) {
-      this.updateModel(model.toJSON());
-    }, this));
+  //   // Listen for model change.
+  //   this.model.prototype.bind('change', _.bind(function(model) {
+  //     this.updateModel(model.toJSON());
+  //   }, this));
 
-  },
+  // },
 
 
   /**
