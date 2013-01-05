@@ -33,35 +33,35 @@ describe('Neatline.SyncCollection', function() {
   });
 
 
-  describe('initialize', function() {
+  // describe('initialize', function() {
 
-    it('should propagate model changes to all collections', function() {
+  //   it('should propagate model changes to all collections', function() {
 
-      // ------------------------------------------------------------------
-      // When a model instance is changed by way of a call to `set`, all
-      // instances of Neatline.SyncCollection that contain models of that
-      // type should check to see if a model with the id of the originally
-      // changed model exists in the collection, and, if so, update the
-      // local copy.
-      // ------------------------------------------------------------------
+  //     // ------------------------------------------------------------------
+  //     // When a model instance is changed by way of a call to `set`, all
+  //     // instances of Neatline.SyncCollection that contain models of that
+  //     // type should check to see if a model with the id of the originally
+  //     // changed model exists in the collection, and, if so, update the
+  //     // local copy.
+  //     // ------------------------------------------------------------------
 
-      // Create two collections.
-      var coll1 = new collection();
-      var coll2 = new collection();
+  //     // Create two collections.
+  //     var coll1 = new collection();
+  //     var coll2 = new collection();
 
-      // Populate with the same model.
-      var model1 = coll1.create({ id: 1 });
-      var model2 = coll2.create({ id: 1 });
+  //     // Populate with the same model.
+  //     var model1 = coll1.create({ id: 1 });
+  //     var model2 = coll2.create({ id: 1 });
 
-      // Change model1.
-      model1.set({ newAttr: 'val' });
+  //     // Change model1.
+  //     model1.set({ newAttr: 'val' });
 
-      // Check for change on model2.
-      expect(model2.get('newAttr')).toEqual('val');
+  //     // Check for change on model2.
+  //     expect(model2.get('newAttr')).toEqual('val');
 
-    });
+  //   });
 
-  });
+  // });
 
 
   describe('updateModel', function() {
