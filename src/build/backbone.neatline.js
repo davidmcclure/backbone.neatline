@@ -13,7 +13,6 @@ Backbone.Neatline = (function(Backbone, _, $) {
   var Neatline = {};
 
 //= ../neatline.collection.js
-//= ../neatline.synccollection.js
 //= ../neatline.view.js
 
   return Neatline;
