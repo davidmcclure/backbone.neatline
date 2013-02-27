@@ -100,61 +100,6 @@ describe('Neatline.View', function() {
 
     });
 
-    it('should call `delegateEvents`', function() {
-
-      // ------------------------------------------------------------------
-      // When the view is displayed in a container, `delegateEvents` needs
-      // to be (re-)called in order to guarantee that bindings declared in
-      // the `events` hash are live after the call to `show`.
-      // ------------------------------------------------------------------
-
-      // Define subclass with `events` hash.
-      var view = Backbone.Neatline.View.extend({
-        template: '#template',
-        events: { 'click div': 'clicked' },
-        clicked: function() {}
-      });
-
-      // Spy on `clicked`.
-      var inst = new view();
-      spyOn(inst, 'clicked');
-      inst.getTemplate();
-      inst.showIn(container);
-
-      // Overwrite without detaching.
-      container.html($('<div></div>"'));
-      inst.showIn(container);
-
-      // Trigger event callback.
-      inst.$('#el4').trigger('click');
-      expect(inst.clicked).toHaveBeenCalled();
-
-    });
-
-    it('should call `buildUi`', function() {
-
-      // ------------------------------------------------------------------
-      // When the view is displayed, `buildUi` should be (re-)called.
-      // ------------------------------------------------------------------
-
-      var called = false;
-
-      // Define subclass with `buildUi`.
-      var view = Backbone.Neatline.View.extend({
-        buildUi: function() {
-          called = true;
-        }
-      });
-
-      // Show the view.
-      var inst = new view();
-      inst.showIn(container);
-
-      // `buildUi` should be called.
-      expect(called).toBeTruthy();
-
-    });
-
   });
 
 

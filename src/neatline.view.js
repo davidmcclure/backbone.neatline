@@ -56,17 +56,6 @@ Neatline.View = Backbone.View.extend({
    */
   showIn: function(container) {
     this.$el.appendTo(container);
-    this.delegateEvents();
-    this.buildUi();
-  },
-
-
-  /**
-   * Instantiate element-specific code on the template. 
-   * @no-op
-   */
-  buildUi: function() {
-    // NO-OP
   }
 
 
