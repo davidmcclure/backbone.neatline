@@ -24,7 +24,6 @@ describe('Neatline.View', function() {
       // be selected, compiled, and injected into `$el`.
       // ------------------------------------------------------------------
 
-      // Define subclass with `template`.
       var view = Backbone.Neatline.View.extend({
         template: '#template'
       });
@@ -53,7 +52,6 @@ describe('Neatline.View', function() {
       // original string values.
       // ------------------------------------------------------------------
 
-      // Define subclass with `ui`.
       var view = Backbone.Neatline.View.extend({
         ui: {
           el1: '#el1',

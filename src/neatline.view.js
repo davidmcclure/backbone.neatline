@@ -13,7 +13,25 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Select, compile, and inject the underscore template into $el.
+   * Get the template and ui, call subclass-defined `init`.
+   */
+  initialize: function() {
+    this.getTemplate(); this.getUi();
+    this.init();
+  },
+
+
+  /**
+   * Initializer for application views.
+   * @abstract
+   */
+  init: function() {
+    // NO-OP
+  },
+
+
+  /**
+   * Compile and inject the underscore template into the view element.
    */
   getTemplate: function() {
     if (!this.template) return;

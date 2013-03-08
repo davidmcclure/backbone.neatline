@@ -12,9 +12,10 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-rigger');
   grunt.loadNpmTasks('grunt-shell');
 
@@ -48,19 +49,21 @@ module.exports = function(grunt) {
     },
 
     jasmine: {
-      src: [
-        cfg.jquery,
-        cfg.underscore,
-        cfg.backbone,
-        'lib/backbone.neatline.js'
-      ],
-      options: {
-        specs: 'spec/unit/**/*.spec.js',
-        helpers: [
-          'spec/helpers.js',
-          cfg.jasmine_jquery,
-          cfg.sinon
-        ]
+      neatline: {
+        src: [
+          cfg.jquery,
+          cfg.underscore,
+          cfg.backbone,
+          'lib/backbone.neatline.js'
+        ],
+        options: {
+          specs: 'spec/unit/**/*.spec.js',
+          helpers: [
+            'spec/helpers.js',
+            cfg.jasmine_jquery,
+            cfg.sinon
+          ]
+        }
       }
     },
 
@@ -69,14 +72,37 @@ module.exports = function(grunt) {
         files: 'src/**/*.js',
         tasks: ['compile']
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          keepalive: true,
+          port: 1337
+        }
+      }
     }
 
   });
 
 
   grunt.registerTask('default', 'jasmine');
-  grunt.registerTask('compile', ['rig', 'uglify']);
-  grunt.registerTask('build', ['clean', 'shell:bower', 'compile']);
+
+  grunt.registerTask('compile', [
+    'rig',
+    'uglify'
+  ]);
+
+  grunt.registerTask('build', [
+    'clean',
+    'shell:bower',
+    'compile'
+  ]);
+
+  grunt.registerTask('jasmine:server', [
+    'jasmine:neatline:build',
+    'connect'
+  ]);
 
 
 };
