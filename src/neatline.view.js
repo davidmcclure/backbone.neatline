@@ -16,7 +16,8 @@ Neatline.View = Backbone.View.extend({
    * Get the template and ui, call subclass-defined `init`.
    */
   initialize: function() {
-    this.getTemplate(); this.getUi();
+    this.getTemplate();
+    this.getUi();
     this.init();
   },
 
@@ -40,8 +41,8 @@ Neatline.View = Backbone.View.extend({
 
 
   /**
-   * Copy the canonical `ui` hash to a instance-endemic `__ui` hash and
-   * replace the values with DOM selections derived from the strings.
+   * Copy the canonical `ui` hash to a instance-specific `__ui` hash and
+   * re-point the keys at DOM selections derived from the string values.
    */
   getUi: function() {
 
