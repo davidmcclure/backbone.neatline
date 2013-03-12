@@ -2,10 +2,10 @@
     "name": "Neatline.Backbone"
   , "version": "0.0.1"
   , "dependencies": {
-      "jquery": ">= 1.8.2"
-    , "underscore": ">= 1.4.2"
-    , "backbone": ">= 0.9.2"
+      "jquery":         ">= 1.8.2"
+    , "underscore":     ">= 1.4.2"
+    , "backbone":       ">= 0.9.2"
     , "jasmine-jquery": ">= 1.4.2"
-    , "sinon.js": "*"
+    , "sinon":          ">= 1.6.0"
   }
 }

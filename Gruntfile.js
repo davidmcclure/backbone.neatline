@@ -24,9 +24,19 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     shell: {
-      bower: {
-        command: 'bower install',
+      options: {
         stdout: true
+      },
+      bower_install: {
+        command: 'bower install',
+      },
+      build_sinon: {
+        command: './build',
+        options: {
+          execOptions: {
+            cwd: cfg.build.sinon
+          }
+        }
       }
     },
 
@@ -51,17 +61,17 @@ module.exports = function(grunt) {
     jasmine: {
       neatline: {
         src: [
-          cfg.jquery,
-          cfg.underscore,
-          cfg.backbone,
+          cfg.vendor.jquery,
+          cfg.vendor.underscore,
+          cfg.vendor.backbone,
           'lib/backbone.neatline.js'
         ],
         options: {
           specs: 'spec/unit/**/*.spec.js',
           helpers: [
             'spec/helpers.js',
-            cfg.jasmine_jquery,
-            cfg.sinon
+            cfg.vendor.jasmine_jquery,
+            cfg.vendor.sinon
           ]
         }
       }
@@ -95,7 +105,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean',
-    'shell:bower',
+    'shell:bower_install',
+    'shell:build_sinon',
     'compile'
   ]);
 
