@@ -13,18 +13,6 @@ Neatline.Collection = Backbone.Collection.extend({
 
 
   /**
-   * Fetch a subset of the collection from the server.
-   *
-   * @param {Object} params: Query parameters.
-   * @param {Function} cb: Called when `fetch` completes.
-   */
-  update: function(params, cb) {
-    params = params || {};
-    this.fetch({ data: $.param(params), success: cb });
-  },
-
-
-  /**
    * Get a model by id.
    *
    * - If the model is already present in the collection, pass it to the
